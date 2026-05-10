@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Mother's Day 🌷</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Great+Vibes&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<!-- Custom cursor -->
+<div id="cursor"></div>
+
+<!-- ═══════════════════════════════════════════════════════
+     OPENING PAGE
+═══════════════════════════════════════════════════════ -->
+<div id="opening">
+  <div id="op-sky"></div>
+  <canvas id="op-particles"></canvas>
+  <div id="op-vignette"></div>
+
+  <div id="op-content">
+    <div id="op-label">✦ &nbsp; a gift for you &nbsp; ✦</div>
+
+    <div id="op-tulip-wrap">
+      <svg id="op-svg" viewBox="0 0 300 560" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="op-pg-back" cx="45%" cy="25%" r="72%">
+            <stop id="opb0" offset="0%"   stop-color="#fff0f8"/>
+            <stop id="opb1" offset="45%"  stop-color="#f0a0c0"/>
+            <stop id="opb2" offset="100%" stop-color="#c03268"/>
+          </radialGradient>
+          <radialGradient id="op-pg-front" cx="40%" cy="20%" r="68%">
+            <stop id="opf0" offset="0%"   stop-color="#fce4ec"/>
+            <stop id="opf1" offset="40%"  stop-color="#e87aaa"/>
+            <stop id="opf2" offset="100%" stop-color="#b02860"/>
+          </radialGradient>
+          <radialGradient id="op-pg-center" cx="50%" cy="22%" r="65%">
+            <stop id="opc0" offset="0%"   stop-color="#fff4f8"/>
+            <stop id="opc1" offset="50%"  stop-color="#e060a0"/>
+            <stop id="opc2" offset="100%" stop-color="#b83070"/>
+          </radialGradient>
+          <linearGradient id="op-stem" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%"   stop-color="#1a4020"/>
+            <stop offset="50%"  stop-color="#3a7040"/>
+            <stop offset="100%" stop-color="#1a4020"/>
+          </linearGradient>
+          <linearGradient id="op-leaf" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%"   stop-color="#4a8840"/>
+            <stop offset="100%" stop-color="#285a28"/>
+          </linearGradient>
+          <filter id="op-glow" x="-30%" y="-30%" width="160%" height="160%">
+            <feGaussianBlur stdDeviation="8" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+          <filter id="op-soft-glow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="18" result="blur"/>
+            <feColorMatrix in="blur" type="saturate" values="2"/>
+            <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+
+        <ellipse id="op-halo" cx="150" cy="160" rx="80" ry="80"
+          fill="rgba(248,140,200,0.18)" filter="url(#op-soft-glow)"
+          style="animation:opHaloBreath 3s ease-in-out infinite"/>
+
+        <g style="transform-origin:150px 560px; animation:stemGrowOp 1.4s 0.2s cubic-bezier(.16,1,.3,1) both">
+          <path d="M150,560 Q146,430 150,300" stroke="url(#op-stem)" stroke-width="10" fill="none" stroke-linecap="round"/>
+        </g>
+        <g style="transform-origin:150px 410px; animation:leafAppear 1.2s 0.8s cubic-bezier(.16,1,.3,1) both; opacity:0">
+          <path d="M150,410 Q200,368 248,378 Q210,415 150,410" fill="url(#op-leaf)" opacity="0.92"/>
+          <path d="M150,410 Q200,390 240,380" stroke="#3a7040" stroke-width="1" fill="none" opacity="0.4"/>
+        </g>
+        <g style="transform-origin:150px 460px; animation:leafAppear 1.2s 1s cubic-bezier(.16,1,.3,1) both; opacity:0">
+          <path d="M150,460 Q100,422 58,430 Q98,464 150,460" fill="url(#op-leaf)" opacity="0.85"/>
+          <path d="M150,460 Q100,442 62,432" stroke="#3a7040" stroke-width="1" fill="none" opacity="0.4"/>
+        </g>
+        <g id="op-bloom" style="transform-origin:150px 300px; animation:bloomAppear 1.6s 0.9s cubic-bezier(.16,1,.3,1) both; opacity:0"
+           filter="url(#op-glow)">
+          <ellipse cx="150" cy="180" rx="36" ry="80"
+            fill="url(#op-pg-back)" opacity="0.68" transform="rotate(-32,150,300)"/>
+          <ellipse cx="150" cy="180" rx="36" ry="80"
+            fill="url(#op-pg-back)" opacity="0.68" transform="rotate(32,150,300)"/>
+          <ellipse cx="150" cy="168" rx="30" ry="72"
+            fill="url(#op-pg-back)" opacity="0.55" transform="rotate(0,150,300)"/>
+          <ellipse cx="150" cy="185" rx="38" ry="86"
+            fill="url(#op-pg-front)" transform="rotate(-16,150,300)"/>
+          <ellipse cx="150" cy="185" rx="38" ry="86"
+            fill="url(#op-pg-front)" transform="rotate(16,150,300)"/>
+          <ellipse cx="150" cy="182" rx="32" ry="90"
+            fill="url(#op-pg-center)"/>
+          <ellipse cx="140" cy="155" rx="10" ry="28"
+            fill="rgba(255,255,255,0.28)" transform="rotate(-14,140,200)"
+            style="animation:highlightPulse 3s ease-in-out infinite"/>
+          <ellipse cx="160" cy="162" rx="8" ry="20"
+            fill="rgba(255,255,255,0.18)" transform="rotate(10,160,200)"
+            style="animation:highlightPulse 3s 1s ease-in-out infinite"/>
+          <g style="animation:stamenAppear 0.8s 2s both">
+            <circle cx="150" cy="130" r="6"   fill="#f0c860" opacity="0.95"/>
+            <circle cx="140" cy="136" r="4.5" fill="#e8b840" opacity="0.85"/>
+            <circle cx="160" cy="136" r="4.5" fill="#f0c860" opacity="0.9"/>
+            <circle cx="147" cy="122" r="3.5" fill="#f8d880" opacity="0.8"/>
+            <circle cx="153" cy="120" r="3"   fill="#f0d070" opacity="0.75"/>
+          </g>
+          <circle cx="162" cy="112" r="6"   fill="rgba(255,255,255,0.88)" style="animation:dewGlitter 2.5s ease-in-out infinite;--ddel:0.3s"/>
+          <circle cx="136" cy="118" r="4.5" fill="rgba(255,255,255,0.82)" style="animation:dewGlitter 2.5s ease-in-out infinite;--ddel:1s"/>
+          <circle cx="155" cy="102" r="3"   fill="rgba(255,255,255,0.78)" style="animation:dewGlitter 2.5s ease-in-out infinite;--ddel:1.7s"/>
+        </g>
+      </svg>
+      <div style="position:absolute;bottom:-20px;left:50%;transform:translateX(-50%);width:160px;height:30px;border-radius:50%;background:rgba(232,96,138,0.2);filter:blur(16px);animation:opHaloBreath 3s 0.5s ease-in-out infinite;"></div>
+    </div>
+
+    <div id="op-name">Happy Mother's Day</div>
+    <div id="op-sub">for the one who blooms our world</div>
+
+    <button id="op-btn" onclick="enterGarden()">
+      ✦ &nbsp; enter the garden &nbsp; ✦
+    </button>
+
+    <div id="op-color-row">
+      <div class="color-dot pink active" title="Pink Tulip"></div>
+      <div class="color-dot white" title="White Tulip"></div>
+    </div>
+    <div id="op-mode-label">Pink Tulip</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     GARDEN PAGE
+═══════════════════════════════════════════════════════ -->
+<div id="garden-page" style="display:none; min-height:100vh; position:relative;">
+
+  <div id="sky"></div>
+  <div id="moon"></div>
+  <div id="stars"></div>
+
+  <!-- Aurora mists -->
+  <div class="aurora-mist" style="width:500px;height:200px;top:5%;left:-8%;background:rgba(200,80,120,0.12);animation-duration:14s;"></div>
+  <div class="aurora-mist" style="width:400px;height:150px;top:18%;right:-5%;background:rgba(160,80,200,0.1);animation-duration:18s;animation-delay:-6s;"></div>
+  <div class="aurora-mist" style="width:600px;height:180px;top:35%;left:15%;background:rgba(240,120,80,0.07);animation-duration:22s;animation-delay:-10s;"></div>
+
+  <div id="petals-wrap"></div>
+  <div id="fireflies-wrap"></div>
+
+  <div id="scene">
+
+    <!-- TULIP FIELD -->
+    <div id="tulip-field">
+      <svg viewBox="0 0 1400 520" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax meet">
+        <defs>
+          <linearGradient id="stemG" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%"   stop-color="#1a4020"/>
+            <stop offset="50%"  stop-color="#3a7040"/>
+            <stop offset="100%" stop-color="#1a4020"/>
+          </linearGradient>
+          <linearGradient id="leafG1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%"   stop-color="#4a8840"/>
+            <stop offset="100%" stop-color="#2a5a28"/>
+          </linearGradient>
+          <radialGradient id="pg1" cx="40%" cy="20%" r="68%">
+            <stop offset="0%"   stop-color="#fce4ec"/>
+            <stop offset="40%"  stop-color="#e87aaa"/>
+            <stop offset="100%" stop-color="#b02860"/>
+          </radialGradient>
+          <radialGradient id="pg2" cx="45%" cy="25%" r="72%">
+            <stop offset="0%"   stop-color="#fff0f8"/>
+            <stop offset="45%"  stop-color="#f0a0c0"/>
+            <stop offset="100%" stop-color="#c03268"/>
+          </radialGradient>
+          <radialGradient id="pg3" cx="50%" cy="22%" r="65%">
+            <stop offset="0%"   stop-color="#fff4f8"/>
+            <stop offset="50%"  stop-color="#e060a0"/>
+            <stop offset="100%" stop-color="#b83070"/>
+          </radialGradient>
+          <radialGradient id="wg1" cx="40%" cy="20%" r="68%">
+            <stop offset="0%"   stop-color="#ffffff"/>
+            <stop offset="50%"  stop-color="#f0e8f8"/>
+            <stop offset="100%" stop-color="#c8b8e0"/>
+          </radialGradient>
+          <radialGradient id="wg2" cx="45%" cy="25%" r="72%">
+            <stop offset="0%"   stop-color="#fff8fc"/>
+            <stop offset="45%"  stop-color="#ede0f4"/>
+            <stop offset="100%" stop-color="#b8a0d0"/>
+          </radialGradient>
+          <linearGradient id="groundG" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%"   stop-color="#1a3020"/>
+            <stop offset="100%" stop-color="#0e2018"/>
+          </linearGradient>
+          <filter id="petalGlow" x="-30%" y="-30%" width="160%" height="160%">
+            <feGaussianBlur stdDeviation="5" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+
+        <rect x="-100" y="505" width="1600" height="40" fill="url(#groundG)" rx="2"/>
+        <ellipse cx="700" cy="510" rx="750" ry="12" fill="rgba(10,20,14,0.7)"/>
+
+        <!-- TULIP 1 pink -->
+        <g class="sway-3" style="animation-delay:0s">
+          <g class="tulip-stem-g" style="animation-delay:0s">
+            <path d="M140,515 Q136,380 140,255" stroke="url(#stemG)" stroke-width="6" fill="none" stroke-linecap="round"/>
+            <g class="sway-leaf"><path d="M139,350 Q180,316 218,325 Q186,358 139,350" fill="url(#leafG1)" opacity=".9"/></g>
+            <g class="sway-leaf" style="animation-direction:reverse"><path d="M139,430 Q100,405 78,412 Q102,438 139,430" fill="url(#leafG1)" opacity=".8"/></g>
+          </g>
+          <g class="tulip-bloom" style="animation-delay:0s">
+            <g transform="translate(140,255)" filter="url(#petalGlow)">
+              <ellipse cx="0"   cy="-48" rx="16" ry="28" fill="url(#pg3)" opacity=".6" transform="rotate(-22)"/>
+              <ellipse cx="0"   cy="-48" rx="16" ry="28" fill="url(#pg3)" opacity=".6" transform="rotate(22)"/>
+              <ellipse cx="-17" cy="-38" rx="15" ry="30" fill="url(#pg1)" transform="rotate(-14)"/>
+              <ellipse cx="17"  cy="-38" rx="15" ry="30" fill="url(#pg2)" transform="rotate(14)"/>
+              <ellipse cx="0"   cy="-40" rx="14" ry="32" fill="url(#pg1)"/>
+              <circle class="dew" cx="9" cy="-60" r="4" fill="rgba(255,255,255,.9)" style="--ddel:.3s"/>
+              <circle cx="0" cy="-65" r="3.5" fill="#f0c060" opacity=".95"/>
+            </g>
+          </g>
+        </g>
+
+        <!-- TULIP 2 white -->
+        <g class="sway-2" style="animation-delay:.3s">
+          <g class="tulip-stem-g" style="animation-delay:.3s">
+            <path d="M290,515 Q286,400 290,295" stroke="url(#stemG)" stroke-width="5.5" fill="none" stroke-linecap="round"/>
+            <g class="sway-leaf"><path d="M289,385 Q326,356 358,364 Q330,390 289,385" fill="url(#leafG1)" opacity=".88"/></g>
+          </g>
+          <g class="tulip-bloom" style="animation-delay:.3s">
+            <g transform="translate(290,295)">
+              <ellipse cx="0"   cy="-42" rx="15" ry="25" fill="url(#wg2)" opacity=".65" transform="rotate(-20)"/>
+              <ellipse cx="0"   cy="-42" rx="15" ry="25" fill="url(#wg2)" opacity=".65" transform="rotate(20)"/>
+              <ellipse cx="-15" cy="-34" rx="14" ry="27" fill="url(#wg1)" transform="rotate(-13)"/>
+              <ellipse cx="15"  cy="-34" rx="14" ry="27" fill="url(#wg1)" transform="rotate(13)"/>
+              <ellipse cx="0"   cy="-36" rx="13" ry="29" fill="url(#wg2)"/>
+              <circle class="dew" cx="8" cy="-55" r="3.5" fill="rgba(255,255,255,.9)" style="--ddel:.8s"/>
+              <circle cx="0" cy="-58" r="2.5" fill="#f8d060" opacity=".8"/>
+            </g>
+          </g>
+        </g>
+
+        <!-- TULIP 3 pink -->
+        <g class="sway-1" style="animation-delay:.5s">
+          <g class="tulip-stem-g" style="animation-delay:.5s">
+            <path d="M430,515 Q426,370 430,240" stroke="url(#stemG)" stroke-width="6.5" fill="none" stroke-linecap="round"/>
+            <g class="sway-leaf"><path d="M429,340 Q472,306 510,315 Q478,348 429,340" fill="url(#leafG1)" opacity=".92"/></g>
+            <g class="sway-leaf" style="animation-direction:reverse"><path d="M429,420 Q388,395 366,402 Q390,430 429,420" fill="url(#leafG1)" opacity=".82"/></g>
+          </g>
+          <g class="tulip-bloom" style="animation-delay:.5s">
+            <g transform="translate(430,240)" filter="url(#petalGlow)">
+              <ellipse cx="0"   cy="-54" rx="18" ry="32" fill="url(#pg2)" opacity=".55" transform="rotate(-24)"/>
+              <ellipse cx="0"   cy="-54" rx="18" ry="32" fill="url(#pg2)" opacity=".55" transform="rotate(24)"/>
+              <ellipse cx="-19" cy="-43" rx="17" ry="34" fill="url(#pg1)" transform="rotate(-15)"/>
+              <ellipse cx="19"  cy="-43" rx="17" ry="34" fill="url(#pg3)" transform="rotate(15)"/>
+              <ellipse cx="0"   cy="-46" rx="16" ry="36" fill="url(#pg1)"/>
+              <circle class="dew" cx="11" cy="-70" r="4.5" fill="rgba(255,255,255,.88)" style="--ddel:.1s"/>
+              <circle class="dew" cx="-8" cy="-65" r="3"   fill="rgba(255,255,255,.8)"  style="--ddel:1s"/>
+              <circle cx="0" cy="-72" r="3.5" fill="#f0c060" opacity=".95"/>
+            </g>
+          </g>
+        </g>
+
+        <!-- TULIP 4 white -->
+        <g class="sway-4" style="animation-delay:.7s">
+          <g class="tulip-stem-g" style="animation-delay:.7s">
+            <path d="M560,515 Q556,390 560,280" stroke="url(#stemG)" stroke-width="5.5" fill="none" stroke-linecap="round"/>
+            <g class="sway-leaf"><path d="M559,370 Q595,340 628,348 Q600,374 559,370" fill="url(#leafG1)" opacity=".88"/></g>
+          </g>
+          <g class="tulip-bloom" style="animation-delay:.7s">
+            <g transform="translate(560,280)">
+              <ellipse cx="0"   cy="-44" rx="15" ry="26" fill="url(#wg1)" opacity=".6" transform="rotate(-20)"/>
+              <ellipse cx="0"   cy="-44" rx="15" ry="26" fill="url(#wg1)" opacity=".6" transform="rotate(20)"/>
+              <ellipse cx="-16" cy="-35" rx="14" ry="28" fill="url(#wg2)" transform="rotate(-13)"/>
+              <ellipse cx="16"  cy="-35" rx="14" ry="28" fill="url(#wg2)" transform="rotate(13)"/>
+              <ellipse cx="0"   cy="-37" rx="13" ry="30" fill="url(#wg1)"/>
+              <circle class="dew" cx="7" cy="-55" r="3.5" fill="rgba(255,255,255,.9)" style="--ddel:1.5s"/>
+              <circle cx="0" cy="-60" r="2.5" fill="#f8d060" opacity=".8"/>
+            </g>
+          </g>
+        </g>
+
+        <!-- TULIP 5 pink tallest -->
+        <g class="sway-5" style="animation-delay:.9s">
+          <g class="tulip-stem-g" style="animation-delay:.9s">
+            <path d="M700,515 Q695,360 700,230" stroke="url(#stemG)" stroke-width="6.5" fill="none" stroke-linecap="round"/>
+            <g class="sway-leaf"><path d="M699,340 Q742,305 785,315 Q754,348 699,340" fill="url(#leafG1)" opacity=".92"/></g>
+            <g class="sway-leaf" style="animation-direction:reverse"><path d="M699,420 Q658,392 635,400 Q660,428 699,420" fill="url(#leafG1)" opacity=".82"/></g>
+          </g>
+          <g class="tulip-bloom" style="animation-delay:.9s">
+            <g transform="translate(700,230)" filter="url(#petalGlow)">
+              <ellipse cx="0"   cy="-52" rx="18" ry="32" fill="url(#pg3)" opacity=".55" transform="rotate(-24)"/>
+              <ellipse cx="0"   cy="-52" rx="18" ry="32" fill="url(#pg3)" opacity=".55" transform="rotate(24)"/>
+              <ellipse cx="-19" cy="-41" rx="17" ry="34" fill="url(#pg2)" transform="rotate(-15)"/>
+              <ellipse cx="19"  cy="-41" rx="17" ry="34" fill="url(#pg1)" transform="rotate(15)"/>
+              <ellipse cx="0"   cy="-44" rx="16" ry="36" fill="url(#pg1)"/>
+              <circle class="dew" cx="10" cy="-68" r="4.5" fill="rgba(255,255,255,.88)" style="--ddel:.2s"/>
+              <circle class="dew" cx="-8" cy="-62" r="3"   fill="rgba(255,255,255,.8)"  style="--ddel:1.2s"/>
+              <circle cx="0" cy="-70" r="3.5" fill="#f0c060" opacity=".95"/>
+            </g>
+          </g>
+        </g>
+
+        <!-- TULIP 6 white -->
+        <g class="sway-2" style="animation-delay:1.1s">
+          <g class="tulip-stem-g" style="animation-delay:1.1s">
+            <path d="M840,515 Q836,390 840,278" stroke="url(#stemG)" stroke-width="5.5" fill="none" stroke-linecap="round"/>
+            <g class="sway-leaf"><path d="M839,370 Q876,340 908,348 Q880,374 839,370" fill="url(#leafG1)" opacity=".88"/></g>
+          </g>
+          <g class="tulip-bloom" style="animation-delay:1.1s">
+            <g transform="translate(840,278)">
+              <ellipse cx="0"   cy="-44" rx="15" ry="26" fill="url(#wg2)" opacity=".6" transform="rotate(-20)"/>
+              <ellipse cx="0"   cy="-44" rx="15" ry="26" fill="url(#wg2)" opacity=".6" transform="rotate(20)"/>
+              <ellipse cx="-16" cy="-35" rx="14" ry="28" fill="url(#wg1)" transform="rotate(-13)"/>
+              <ellipse cx="16"  cy="-35" rx="14" ry="28" fill="url(#wg1)" transform="rotate(13)"/>
+              <ellipse cx="0"   cy="-37" rx="13" ry="30" fill="url(#wg2)"/>
+              <circle class="dew" cx="8" cy="-56" r="3.5" fill="rgba(255,255,255,.9)" style="--ddel:.6s"/>
+              <circle cx="0" cy="-60" r="2.5" fill="#f8d060" opacity=".8"/>
+            </g>
+          </g>
+        </g>
+
+        <!-- TULIP 7 pink -->
+        <g class="sway-1" style="animation-delay:1.3s">
+          <g class="tulip-stem-g" style="animation-delay:1.3s">
+            <path d="M970,515 Q966,380 970,260" stroke="url(#stemG)" stroke-width="6" fill="none" stroke-linecap="round"/>
+            <g class="sway-leaf"><path d="M969,360 Q1010,326 1048,335 Q1016,366 969,360" fill="url(#leafG1)" opacity=".9"/></g>
+            <g class="sway-leaf" style="animation-direction:reverse"><path d="M969,430 Q935,406 914,413 Q937,440 969,430" fill="url(#leafG1)" opacity=".8"/></g>
+          </g>
+          <g class="tulip-bloom" style="animation-delay:1.3s">
+            <g transform="translate(970,260)" filter="url(#petalGlow)">
+              <ellipse cx="0"   cy="-48" rx="16" ry="28" fill="url(#pg3)" opacity=".6" transform="rotate(-22)"/>
+              <ellipse cx="0"   cy="-48" rx="16" ry="28" fill="url(#pg3)" opacity=".6" transform="rotate(22)"/>
+              <ellipse cx="-17" cy="-38" rx="15" ry="30" fill="url(#pg1)" transform="rotate(-14)"/>
+              <ellipse cx="17"  cy="-38" rx="15" ry="30" fill="url(#pg2)" transform="rotate(14)"/>
+              <ellipse cx="0"   cy="-40" rx="14" ry="32" fill="url(#pg1)"/>
+              <circle class="dew" cx="9" cy="-63" r="3.5" fill="rgba(255,255,255,.87)" style="--ddel:.4s"/>
+              <circle cx="0" cy="-62" r="3" fill="#f0c060" opacity=".9"/>
+            </g>
+          </g>
+        </g>
+
+        <!-- TULIP 8 white -->
+        <g class="sway-4" style="animation-delay:1.5s">
+          <g class="tulip-stem-g" style="animation-delay:1.5s">
+            <path d="M1090,510 Q1086,400 1090,310" stroke="url(#stemG)" stroke-width="5.5" fill="none" stroke-linecap="round"/>
+            <g class="sway-leaf"><path d="M1089,390 Q1125,360 1156,368 Q1128,393 1089,390" fill="url(#leafG1)" opacity=".85"/></g>
+          </g>
+          <g class="tulip-bloom" style="animation-delay:1.5s">
+            <g transform="translate(1090,310)">
+              <ellipse cx="0"   cy="-42" rx="15" ry="24" fill="url(#wg1)" opacity=".65" transform="rotate(-20)"/>
+              <ellipse cx="0"   cy="-42" rx="15" ry="24" fill="url(#wg1)" opacity=".65" transform="rotate(20)"/>
+              <ellipse cx="-16" cy="-33" rx="14" ry="26" fill="url(#wg2)" transform="rotate(-12)"/>
+              <ellipse cx="16"  cy="-33" rx="14" ry="26" fill="url(#wg2)" transform="rotate(12)"/>
+              <ellipse cx="0"   cy="-36" rx="13" ry="28" fill="url(#wg1)"/>
+              <circle class="dew" cx="7" cy="-52" r="3.5" fill="rgba(255,255,255,.9)" style="--ddel:1.8s"/>
+              <circle cx="0" cy="-55" r="2.5" fill="#f0c060" opacity=".7"/>
+            </g>
+          </g>
+        </g>
+
+        <!-- TULIP 9 pink -->
+        <g class="sway-3" style="animation-delay:1.7s">
+          <g class="tulip-stem-g" style="animation-delay:1.7s">
+            <path d="M1200,510 Q1198,420 1200,340" stroke="url(#stemG)" stroke-width="5" fill="none" stroke-linecap="round"/>
+            <g class="sway-leaf"><path d="M1199,400 Q1232,376 1256,382 Q1234,402 1199,400" fill="url(#leafG1)" opacity=".9"/></g>
+          </g>
+          <g class="tulip-bloom" style="animation-delay:1.7s">
+            <g transform="translate(1200,340)" filter="url(#petalGlow)">
+              <ellipse cx="0"   cy="-38" rx="14" ry="22" fill="url(#pg2)" opacity=".7" transform="rotate(-18)"/>
+              <ellipse cx="0"   cy="-38" rx="14" ry="22" fill="url(#pg2)" opacity=".7" transform="rotate(18)"/>
+              <ellipse cx="-14" cy="-30" rx="13" ry="24" fill="url(#pg1)" transform="rotate(-10)"/>
+              <ellipse cx="14"  cy="-30" rx="13" ry="24" fill="url(#pg1)" transform="rotate(10)"/>
+              <ellipse cx="0"   cy="-32" rx="12" ry="26" fill="url(#pg2)"/>
+              <circle cx="0" cy="-48" r="3" fill="#f0c060" opacity=".8"/>
+            </g>
+          </g>
+        </g>
+
+        <ellipse cx="700" cy="508" rx="600" ry="20" fill="rgba(200,160,200,0.05)"/>
+      </svg>
+    </div>
+
+    <!-- HERO -->
+    <div id="hero">
+      <div class="hero-label">✦ &nbsp; with all the love in the world &nbsp; ✦</div>
+      <div class="hero-title">Happy Mother's Day</div>
+      <div class="hero-year">May 2026 &nbsp; · &nbsp; 🌷 &nbsp; · &nbsp; always & forever</div>
+      <div class="scroll-hint">
+        <span>scroll to read your letter</span>
+        <div class="scroll-arrow"></div>
+      </div>
+    </div>
+
+    <!-- LOVE LETTER CARD -->
+    <div id="letter-wrap">
+      <div id="letter-card">
+        <div class="lc-tr"></div>
+        <div class="lc-bl"></div>
+
+        <span class="letter-kicker">✦ &nbsp; a letter for you &nbsp; ✦</span>
+        <div class="letter-title">Dear Mama</div>
+        <div class="letter-sub">the heart of everything we are</div>
+
+        <div class="letter-divider">
+          <div class="letter-divider-line"></div>
+          <span class="letter-divider-icon">🌷</span>
+          <div class="letter-divider-line"></div>
+        </div>
+
+        <div class="letter-body">
+          There is a kind of love that <em>needs no words</em> to be understood —<br>
+          the kind that wakes before anyone else,<br>
+          that notices when something is wrong before you speak,<br>
+          that fills a room simply by <em>being in it</em>.<br><br>
+
+          That is the love you gave us.<br>
+          Quiet, <em>boundless</em>, patient as the seasons.<br>
+          You bloomed us into who we are,<br>
+          the way spring coaxes tulips from cold earth —<br>
+          <em>gently, surely, without asking for anything in return</em>.<br><br>
+
+          On this day, we give you back some of that warmth.<br>
+          We see you. We treasure you.<br>
+          We are so endlessly grateful to call you <em>ours</em>.
+        </div>
+
+        <div class="letter-divider">
+          <div class="letter-divider-line"></div>
+          <span class="letter-divider-icon">💖</span>
+          <div class="letter-divider-line"></div>
+        </div>
+
+        <div class="card-signature" style="font-family:'Great Vibes',cursive;font-size:clamp(36px,5vw,52px);color:rgba(248,176,200,.7);text-align:center;margin-bottom:8px;text-shadow:0 0 30px rgba(248,176,200,.3);">
+          With all our love
+        </div>
+        <div class="card-ps" style="font-family:'Cormorant Garamond',serif;font-size:13px;color:rgba(248,176,200,.35);text-align:center;font-style:italic;letter-spacing:1px;">
+          p.s. — the tulips are for you. they always were. 🌷
+        </div>
+      </div>
+    </div>
+
+    <!-- MEMORY CARDS -->
+    <section id="memories">
+      <div class="memories-title">Little Things We Love About You</div>
+      <div class="memories-sub">✦ &nbsp; a few of infinite reasons &nbsp; ✦</div>
+
+      <div class="memory-grid">
+        <div class="memory-card" style="--cf-dur:7s;--cf-del:0s;">
+          <span class="mc-icon">🌅</span>
+          <div class="mc-title">Your Morning Light</div>
+          <div class="mc-text">The way you make ordinary mornings feel like something worth waking up for. Coffee, warmth, and you.</div>
+        </div>
+        <div class="memory-card" style="--cf-dur:8s;--cf-del:1s;">
+          <span class="mc-icon">🤲</span>
+          <div class="mc-title">Hands That Healed</div>
+          <div class="mc-text">Every scraped knee, every broken heart — your hands knew exactly how to make it better.</div>
+        </div>
+        <div class="memory-card" style="--cf-dur:6.5s;--cf-del:2s;">
+          <span class="mc-icon">🌷</span>
+          <div class="mc-title">How You Bloom</div>
+          <div class="mc-text">Like a tulip in early spring — radiant, graceful, bringing colour to everything around you.</div>
+        </div>
+        <div class="memory-card" style="--cf-dur:9s;--cf-del:0.5s;">
+          <span class="mc-icon">✨</span>
+          <div class="mc-title">Your Laughter</div>
+          <div class="mc-text">The kind that fills the whole house. The kind we would travel any distance to hear again.</div>
+        </div>
+        <div class="memory-card" style="--cf-dur:7.5s;--cf-del:1.5s;">
+          <span class="mc-icon">📖</span>
+          <div class="mc-title">Stories & Wisdom</div>
+          <div class="mc-text">Every lesson you taught without lecturing. Every truth you showed us simply by living it.</div>
+        </div>
+        <div class="memory-card" style="--cf-dur:6s;--cf-del:2.5s;">
+          <span class="mc-icon">💌</span>
+          <div class="mc-title">Unconditional Love</div>
+          <div class="mc-text">The love that asks nothing, gives everything, and remains — steady as stars — no matter what.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLOSING -->
+    <div id="closing">
+      <div class="closing-tulips">
+        <span>🌷</span><span>🌸</span><span>🌷</span><span>💖</span><span>🌷</span><span>🌸</span><span>🌷</span>
+      </div>
+      <div class="closing-msg">Happy Mother's Day</div>
+      <div class="closing-ps">click anywhere to celebrate · 🌷 · made with love</div>
+    </div>
+
+  </div><!-- /scene -->
+</div><!-- /garden-page -->
+
+<div id="hint" style="display:none">✦ click anywhere to bloom ✦</div>
+<script src="script.js"></script>
+</body>
+</html>
